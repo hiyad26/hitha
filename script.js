@@ -1,447 +1,1077 @@
-/* =========================================================
-   HITHA — Main JavaScript
-   ========================================================= */
-
-
-/* ================= HERO SLIDER ================= */
-
-const slides = document.querySelectorAll(".hero-background");
-const dots = document.querySelectorAll(".dot");
-
-const heroQuotes = [
+const DEMO_CASES = [
   {
-    arabic:
-      "وَمَا تُقَدِّمُوا لِأَنفُسِكُم مِّنْ خَيْرٍ تَجِدُوهُ عِندَ اللَّهِ",
-
-    quote:
-      "Whatever good you put forward for yourselves—you will find it with Allah.",
-
-    reference:
-      "Qur'an 2:110",
-
-    meaning:
-      "Every sincere act of goodness matters."
+    id: "C001",
+    type: "case",
+    title: "Medical treatment assistance",
+    category: "Medical Assistance",
+    location: "Malé",
+    target: 50000,
+    raised: 32500,
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    story: "A family is seeking assistance toward urgent medical treatment and related expenses.",
+    published: true
   },
-
   {
-    arabic:
-      "مَنْ أَحْيَا أَرْضًا مَيْتَةً فَهِيَ لَهُ",
-
-    quote:
-      "Whoever brings life to a barren land, it belongs to him.",
-
-    reference:
-      "Sahih al-Bukhari",
-
-    meaning:
-      "Small acts of restoration can create lasting benefit."
+    id: "C002",
+    type: "case",
+    title: "Mobility support for a family member",
+    category: "Disability Support",
+    location: "Addu City",
+    target: 30000,
+    raised: 18750,
+    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80",
+    story: "Assistance is needed for essential mobility equipment and related costs.",
+    published: true
   },
-
   {
-    arabic:
-      "وَمَا أَنفَقْتُم مِّن شَيْءٍ فَهُوَ يُخْلِفُهُ",
-
-    quote:
-      "Whatever you spend in charity, He will replace it.",
-
-    reference:
-      "Qur'an 34:39",
-
-    meaning:
-      "Giving is an act of trust and generosity."
+    id: "C003",
+    type: "case",
+    title: "Emergency household assistance",
+    category: "Emergency Assistance",
+    location: "Thulusdhoo",
+    target: 25000,
+    raised: 14000,
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
+    story: "A household is seeking short-term support after an unexpected financial emergency.",
+    published: true
   }
 ];
 
-let currentSlide = 0;
+const DEMO_PROJECTS = [
+  {
+    id: "P001",
+    type: "project",
+    title: "Mosque renovation project",
+    category: "Community Project",
+    location: "Island community",
+    target: 150000,
+    raised: 97000,
+    image: "https://images.unsplash.com/photo-1564769625392-651b89c7e3c3?auto=format&fit=crop&w=1200&q=80",
+    story: "A community project seeking support for approved mosque renovation and essential works.",
+    published: true
+  },
+  {
+    id: "P002",
+    type: "project",
+    title: "Community water project",
+    category: "Community Project",
+    location: "Island community",
+    target: 80000,
+    raised: 46000,
+    image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1200&q=80",
+    story: "A community initiative focused on improving access to essential water infrastructure.",
+    published: true
+  }
+];
 
-const heroArabic = document.getElementById("heroArabic");
-const heroQuote = document.getElementById("heroQuote");
-const heroReference = document.getElementById("heroReference");
-const heroMeaning = document.getElementById("heroMeaning");
+const DEMO_TRANSACTIONS = [
+  {
+    date: "2026-09-20",
+    ref: "DEMO-1001",
+    type: "Donation",
+    amount: 5000,
+    status: "Recorded"
+  },
+  {
+    date: "2026-09-21",
+    ref: "DEMO-1002",
+    type: "Assistance",
+    amount: -7500,
+    status: "Recorded"
+  },
+  {
+    date: "2026-09-22",
+    ref: "DEMO-1003",
+    type: "Donation",
+    amount: 10000,
+    status: "Recorded"
+  },
+  {
+    date: "2026-09-23",
+    ref: "DEMO-1004",
+    type: "Project contribution",
+    amount: 2500,
+    status: "Recorded"
+  }
+];
 
+let cases =
+  JSON.parse(localStorage.getItem("hitha_cases") || "null") ||
+  DEMO_CASES;
 
-function showSlide(index) {
+let projects =
+  JSON.parse(localStorage.getItem("hitha_projects") || "null") ||
+  DEMO_PROJECTS;
 
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === index);
-  });
+let adminTab = "cases";
 
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
-  });
+const $ = (selector) => document.querySelector(selector);
 
-  const quote = heroQuotes[index];
+const $$ = (selector) => [...document.querySelectorAll(selector)];
 
-  heroArabic.textContent = quote.arabic;
-  heroQuote.textContent = quote.quote;
-  heroReference.textContent = "— " + quote.reference;
-  heroMeaning.textContent = quote.meaning;
+const money = (number) =>
+  "MVR " + Number(number || 0).toLocaleString("en-US");
 
-  currentSlide = index;
+function save() {
+  localStorage.setItem("hitha_cases", JSON.stringify(cases));
+  localStorage.setItem("hitha_projects", JSON.stringify(projects));
 }
 
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+function esc(value = "") {
+  return String(value).replace(/[&<>"']/g, (match) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  }[match]));
 }
 
+function card(item) {
+  const target = Number(item.target || 0);
+  const raised = Number(item.raised || 0);
 
-dots.forEach((dot) => {
+  const pct =
+    target > 0
+      ? Math.min(100, Math.round((raised / target) * 100))
+      : 0;
 
-  dot.addEventListener("click", () => {
+  return `
+    <article class="case-card">
 
-    const index = Number(dot.dataset.slide);
+      <div
+        class="case-img"
+        style="background-image:url('${esc(
+          item.image ||
+          "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80"
+        )}')">
+      </div>
 
-    showSlide(index);
+      <div class="case-body">
+
+        <span class="tag">${esc(item.category)}</span>
+
+        <h3>${esc(item.title)}</h3>
+
+        <div class="location">
+          📍 ${esc(item.location)}
+        </div>
+
+        <p class="story-preview">
+          ${esc(item.story)}
+        </p>
+
+        <div class="money-row">
+          <span>${money(raised)} raised</span>
+          <span>${money(target)}</span>
+        </div>
+
+        <div class="progress">
+          <i style="width:${pct}%"></i>
+        </div>
+
+        <div class="money-row">
+          <span>${pct}% funded</span>
+          <span>
+            ${money(Math.max(0, target - raised))}
+            remaining
+          </span>
+        </div>
+
+        <div class="card-actions">
+
+          <button
+            class="btn btn-ghost"
+            onclick="showDetails('${esc(item.id)}')">
+            Read Story
+          </button>
+
+          <button
+            class="btn btn-primary"
+            data-open-donate>
+            Donate
+          </button>
+
+        </div>
+
+      </div>
+    </article>
+  `;
+}
+
+function render() {
+
+  cases = cases.filter(Boolean);
+  projects = projects.filter(Boolean);
+
+  const caseGrid = $("#caseGrid");
+  const projectGrid = $("#projectGrid");
+
+  if (caseGrid) {
+    caseGrid.innerHTML =
+      cases
+        .filter((item) => item.published)
+        .map(card)
+        .join("") ||
+      '<div class="empty">No published cases yet.</div>';
+  }
+
+  if (projectGrid) {
+    projectGrid.innerHTML =
+      projects
+        .filter((item) => item.published)
+        .map(card)
+        .join("") ||
+      '<div class="empty">No published projects yet.</div>';
+  }
+
+  const completedGrid = $("#completedGrid");
+
+  if (completedGrid) {
+    completedGrid.innerHTML = `
+      <div class="completed-card">
+        <b>Demo completed case</b>
+        <p>
+          Assistance delivered and case closed.
+          Real completion records will be connected
+          to verified HITHA transactions.
+        </p>
+      </div>
+
+      <div class="completed-card">
+        <b>Demo community support</b>
+        <p>
+          Project contribution completed.
+          Real project updates will be published
+          after verification.
+        </p>
+      </div>
+    `;
+  }
+
+  const transactionBody = $("#transactionBody");
+
+  if (transactionBody) {
+    transactionBody.innerHTML =
+      DEMO_TRANSACTIONS.map(
+        (transaction) => `
+          <tr>
+            <td>${esc(transaction.date)}</td>
+            <td>${esc(transaction.ref)}</td>
+            <td>${esc(transaction.type)}</td>
+            <td>${money(transaction.amount)}</td>
+            <td class="status">
+              ${esc(transaction.status)}
+            </td>
+          </tr>
+        `
+      ).join("");
+  }
+
+  const raised =
+    cases.reduce(
+      (total, item) => total + Number(item.raised || 0),
+      0
+    ) +
+    projects.reduce(
+      (total, item) => total + Number(item.raised || 0),
+      0
+    );
+
+  const stats = $("#stats");
+
+  if (stats) {
+    stats.innerHTML = `
+      <div class="stat">
+        <b>${cases.length}</b>
+        <small>Demo cases</small>
+      </div>
+
+      <div class="stat">
+        <b>${projects.length}</b>
+        <small>Demo projects</small>
+      </div>
+
+      <div class="stat">
+        <b>${money(raised)}</b>
+        <small>Demo funds raised</small>
+      </div>
+
+      <div class="stat">
+        <b>100%</b>
+        <small>Prototype transparency goal</small>
+      </div>
+    `;
+  }
+
+  renderAdmin();
+  bindDonateButtons();
+}
+
+function openModal(id) {
+  const modal = $(id);
+
+  if (!modal) return;
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeModal(element) {
+
+  const modal = element.closest
+    ? element.closest(".modal")
+    : element;
+
+  if (!modal) return;
+
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+$$("[data-close-modal]").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    closeModal(event.target);
+  });
+});
+
+$$(".modal").forEach((modal) => {
+
+  modal.addEventListener("click", (event) => {
+
+    if (event.target === modal) {
+      closeModal(modal);
+    }
 
   });
 
 });
 
+function bindDonateButtons() {
 
-setInterval(nextSlide, 6500);
+  $$("[data-open-donate]").forEach((button) => {
 
+    button.onclick = () => {
+      openModal("#donateModal");
+    };
 
-/* ================= MOBILE MENU ================= */
-
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const mobileNav = document.getElementById("mobileNav");
-
-mobileMenuBtn.addEventListener("click", () => {
-  mobileNav.classList.toggle("open");
-});
-
-
-document.querySelectorAll(".mobile-nav a").forEach((link) => {
-
-  link.addEventListener("click", () => {
-    mobileNav.classList.remove("open");
   });
 
+}
+
+const requestHelpBtn = $("#requestHelpBtn");
+
+if (requestHelpBtn) {
+  requestHelpBtn.onclick = () => {
+    openModal("#helpModal");
+  };
+}
+
+const donorBtn = $("#donorBtn");
+
+if (donorBtn) {
+  donorBtn.onclick = () => {
+    openModal("#donorModal");
+  };
+}
+
+const donorBtn2 = $("#donorBtn2");
+
+if (donorBtn2) {
+  donorBtn2.onclick = () => {
+    openModal("#donorModal");
+  };
+}
+
+$$("[data-help-category]").forEach((button) => {
+
+  button.onclick = () => {
+
+    openModal("#helpModal");
+
+    const category = $("#helpCategory");
+
+    if (category) {
+      category.value =
+        button.dataset.helpCategory || "";
+    }
+
+  };
+
 });
 
+const helpForm = $("#helpForm");
 
-/* ================= REQUEST HELP MODAL ================= */
+if (helpForm) {
 
-const helpModal = document.getElementById("helpModal");
-const needHelpBtn = document.getElementById("needHelpBtn");
-const aboutHelpBtn = document.getElementById("aboutHelpBtn");
-const footerHelpBtn = document.getElementById("footerHelpBtn");
+  helpForm.onsubmit = (event) => {
 
-const modalClose = document.getElementById("modalClose");
-const modalBackdrop = document.getElementById("modalBackdrop");
+    event.preventDefault();
 
+    const success = $("#helpSuccess");
 
-function openHelpModal() {
-  helpModal.classList.add("open");
-  document.body.style.overflow = "hidden";
+    if (success) {
+      success.classList.add("show");
+    }
+
+    event.target.reset();
+
+  };
+
 }
 
+const donorForm = $("#donorForm");
 
-function closeHelpModal() {
-  helpModal.classList.remove("open");
-  document.body.style.overflow = "";
+if (donorForm) {
+
+  donorForm.onsubmit = (event) => {
+
+    event.preventDefault();
+
+    const success = $("#donorSuccess");
+
+    if (success) {
+      success.classList.add("show");
+    }
+
+    event.target.reset();
+
+  };
+
 }
 
+const donateForm = $("#donateForm");
 
-needHelpBtn.addEventListener("click", openHelpModal);
-aboutHelpBtn.addEventListener("click", openHelpModal);
-footerHelpBtn.addEventListener("click", openHelpModal);
+if (donateForm) {
 
-modalClose.addEventListener("click", closeHelpModal);
-modalBackdrop.addEventListener("click", closeHelpModal);
+  donateForm.onsubmit = (event) => {
 
+    event.preventDefault();
 
-/* ================= REQUEST HELP FORM ================= */
+    const success = $("#donateSuccess");
 
-const helpForm = document.getElementById("helpForm");
+    if (success) {
+      success.classList.add("show");
+    }
 
-helpForm.addEventListener("submit", (event) => {
+    event.target.reset();
 
-  event.preventDefault();
+  };
 
-  /*
-    IMPORTANT:
+}
 
-    This is currently a demonstration only.
+/* =========================
+   HERO SLIDER
+========================= */
 
-    In the real HITHA system this form will send the
-    application securely to the HITHA backend/database.
+const heroSlides = [
 
-    We will add:
-      - secure database storage
-      - admin dashboard
-      - application ID
-      - verification workflow
-      - file uploads
-      - privacy controls
-      - notifications
-  */
+  [
+    "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1800&q=85",
+    "And whatever good you put forward for yourselves — you will find it with Allah.",
+    "Qur’an 2:110 — meaning"
+  ],
 
-  alert(
-    "Thank you. Your request has been received for review.\n\n" +
-    "The secure HITHA application system will be connected in the next stage."
+  [
+    "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1800&q=85",
+    "Whoever saves one life — it is as if he had saved all of mankind.",
+    "Qur’an 5:32 — meaning"
+  ],
+
+  [
+    "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1800&q=85",
+    "Whatever good you do, Allah knows it.",
+    "Qur’an 2:197 — meaning"
+  ]
+
+];
+
+let heroIndex = 0;
+
+function renderHeroDots() {
+
+  const dots = $("#heroDots");
+
+  if (!dots) return;
+
+  dots.innerHTML = "";
+
+  heroSlides.forEach((slide, index) => {
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      index === 0 ? "active" : "";
+
+    button.setAttribute(
+      "aria-label",
+      `Show slide ${index + 1}`
+    );
+
+    button.onclick = () => {
+      setHero(index);
+    };
+
+    dots.appendChild(button);
+
+  });
+
+}
+
+function setHero(index) {
+
+  heroIndex = index;
+
+  const background = $("#heroBg");
+  const quote = $("#heroQuote");
+
+  if (background) {
+    background.style.backgroundImage =
+      `url('${heroSlides[index][0]}')`;
+  }
+
+  if (quote) {
+    quote.textContent =
+      `“${heroSlides[index][1]}”`;
+
+    if (quote.nextElementSibling) {
+      quote.nextElementSibling.textContent =
+        heroSlides[index][2];
+    }
+  }
+
+  $$(".hero-dots button").forEach(
+    (button, number) => {
+
+      button.classList.toggle(
+        "active",
+        number === index
+      );
+
+    }
   );
 
-  helpForm.reset();
-  closeHelpModal();
-
-});
-
-
-/* ================= DONATION MODAL ================= */
-
-const donateModal = document.getElementById("donateModal");
-const donateClose = document.getElementById("donateClose");
-const donateBackdrop = document.getElementById("donateBackdrop");
-const donateCaseTitle = document.getElementById("donateCaseTitle");
-
-const donationButtons =
-  document.querySelectorAll(".small-donate");
-
-const amountButtons =
-  document.querySelectorAll(".amount-buttons button");
-
-const customAmount =
-  document.getElementById("customAmount");
-
-const continueDonation =
-  document.getElementById("continueDonation");
-
-let selectedAmount = 0;
-let selectedCase = "";
-
-
-function openDonationModal(caseName) {
-
-  selectedCase = caseName;
-
-  donateCaseTitle.textContent =
-    "Support " + caseName;
-
-  selectedAmount = 0;
-
-  customAmount.value = "";
-
-  amountButtons.forEach((button) => {
-    button.classList.remove("selected");
-  });
-
-  donateModal.classList.add("open");
-
-  document.body.style.overflow = "hidden";
 }
 
+renderHeroDots();
+setHero(0);
 
-function closeDonationModal() {
+setInterval(() => {
 
-  donateModal.classList.remove("open");
+  setHero(
+    (heroIndex + 1) %
+    heroSlides.length
+  );
 
-  document.body.style.overflow = "";
+}, 7000);
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn = $("#menuBtn");
+
+if (menuBtn) {
+
+  menuBtn.onclick = () => {
+
+    const header =
+      $(".site-header");
+
+    if (header) {
+      header.classList.toggle(
+        "nav-open"
+      );
+    }
+
+  };
+
 }
 
+$$("nav a").forEach((link) => {
 
-donationButtons.forEach((button) => {
+  link.onclick = () => {
 
-  button.addEventListener("click", () => {
+    const header =
+      $(".site-header");
 
-    const caseName =
-      button.dataset.case;
+    if (header) {
+      header.classList.remove(
+        "nav-open"
+      );
+    }
 
-    openDonationModal(caseName);
-
-  });
-
-});
-
-
-amountButtons.forEach((button) => {
-
-  button.addEventListener("click", () => {
-
-    amountButtons.forEach((btn) => {
-      btn.classList.remove("selected");
-    });
-
-    button.classList.add("selected");
-
-    selectedAmount =
-      Number(button.dataset.amount);
-
-    customAmount.value = "";
-  });
+  };
 
 });
 
+/* =========================
+   CASE DETAILS
+========================= */
 
-customAmount.addEventListener("input", () => {
+function showDetails(id) {
 
-  selectedAmount =
-    Number(customAmount.value);
+  const item =
+    [...cases, ...projects]
+      .find((entry) => entry.id === id);
 
-  amountButtons.forEach((button) => {
-    button.classList.remove("selected");
-  });
+  if (!item) return;
+
+  const target =
+    Number(item.target || 0);
+
+  const raised =
+    Number(item.raised || 0);
+
+  const pct =
+    target > 0
+      ? Math.min(
+          100,
+          Math.round(
+            (raised / target) * 100
+          )
+        )
+      : 0;
+
+  const details =
+    $("#caseDetails");
+
+  if (!details) return;
+
+  details.innerHTML = `
+
+    <span class="tag">
+      ${esc(item.category)}
+    </span>
+
+    <h2>
+      ${esc(item.title)}
+    </h2>
+
+    <div class="location">
+      📍 ${esc(item.location)}
+    </div>
+
+    <p>
+      ${esc(item.story)}
+    </p>
+
+    <div class="money-row">
+
+      <span>
+        ${money(raised)} raised
+      </span>
+
+      <span>
+        ${money(target)} target
+      </span>
+
+    </div>
+
+    <div class="progress">
+      <i style="width:${pct}%"></i>
+    </div>
+
+    <p>
+      <b>${pct}% funded.</b>
+      This is a prototype record.
+      Donation processing is not active.
+    </p>
+
+    <button
+      class="btn btn-primary full"
+      onclick="
+        openModal('#donateModal');
+        closeModal(
+          document.querySelector('#caseModal')
+        );
+      ">
+      Support this case
+    </button>
+
+  `;
+
+  openModal("#caseModal");
+}
+
+window.showDetails = showDetails;
+window.openModal = openModal;
+window.closeModal = closeModal;
+
+/* =========================
+   ADMIN CONTENT MANAGER
+========================= */
+
+const adminBtn = $("#adminBtn");
+
+if (adminBtn) {
+
+  adminBtn.onclick = () => {
+
+    openModal("#adminModal");
+
+    renderAdmin();
+
+  };
+
+}
+
+$$("[data-admin-tab]").forEach((button) => {
+
+  button.onclick = () => {
+
+    adminTab =
+      button.dataset.adminTab;
+
+    $$("[data-admin-tab]")
+      .forEach((other) => {
+
+        other.classList.toggle(
+          "active",
+          other === button
+        );
+
+      });
+
+    const form =
+      $("#contentForm");
+
+    if (form) {
+      form.classList.add("hidden");
+    }
+
+    renderAdmin();
+
+  };
 
 });
 
+function activeList() {
 
-donateClose.addEventListener(
-  "click",
-  closeDonationModal
-);
+  return adminTab === "cases"
+    ? cases
+    : projects;
 
+}
 
-donateBackdrop.addEventListener(
-  "click",
-  closeDonationModal
-);
+function renderAdmin() {
 
+  const list =
+    activeList();
 
-/* ================= DONATION CONTINUE ================= */
+  const adminList =
+    $("#adminList");
 
-continueDonation.addEventListener("click", () => {
+  if (!adminList) return;
 
-  if (!selectedAmount || selectedAmount <= 0) {
+  adminList.innerHTML =
+    list.length
 
-    alert("Please select or enter a donation amount.");
+      ? list.map((item) => `
 
+        <div class="admin-item">
+
+          <div>
+
+            <b>
+              ${esc(item.title)}
+            </b>
+
+            <small>
+              ${esc(item.location)}
+              ·
+              ${
+                item.published
+                  ? "Published"
+                  : "Hidden"
+              }
+            </small>
+
+          </div>
+
+          <div class="admin-item-actions">
+
+            <button
+              class="mini-btn"
+              onclick="
+                editContent('${esc(item.id)}')
+              ">
+              Edit
+            </button>
+
+            <button
+              class="mini-btn delete"
+              onclick="
+                deleteContent('${esc(item.id)}')
+              ">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      `).join("")
+
+      : '<div class="empty">No items.</div>';
+
+}
+
+function resetContentForm(
+  type,
+  id = ""
+) {
+
+  const form =
+    $("#contentForm");
+
+  if (!form) return;
+
+  form.classList.remove("hidden");
+
+  form.reset();
+
+  form.type.value = type;
+  form.id.value = id;
+
+  if (form.published) {
+    form.published.checked = true;
+  }
+
+}
+
+const addContentBtn =
+  $("#addContentBtn");
+
+if (addContentBtn) {
+
+  addContentBtn.onclick = () => {
+
+    resetContentForm(
+      adminTab === "cases"
+        ? "case"
+        : "project"
+    );
+
+  };
+
+}
+
+window.editContent = (id) => {
+
+  const item =
+    activeList()
+      .find((entry) => entry.id === id);
+
+  if (!item) return;
+
+  resetContentForm(
+    item.type,
+    item.id
+  );
+
+  const form =
+    $("#contentForm");
+
+  if (!form) return;
+
+  [
+    "title",
+    "location",
+    "category",
+    "target",
+    "raised",
+    "image",
+    "story"
+  ].forEach((key) => {
+
+    if (form.elements[key]) {
+
+      form.elements[key].value =
+        item[key] ?? "";
+
+    }
+
+  });
+
+  if (form.published) {
+    form.published.checked =
+      !!item.published;
+  }
+
+};
+
+window.deleteContent = (id) => {
+
+  if (
+    !confirm(
+      "Delete this demo item?"
+    )
+  ) {
     return;
   }
 
+  if (adminTab === "cases") {
 
-  /*
-    DEMO PAYMENT FLOW
+    cases =
+      cases.filter(
+        (item) => item.id !== id
+      );
 
-    The real version will connect this button to
-    the official HITHA payment provider/account.
+  } else {
 
-    The payment system will then create a transaction
-    record in the HITHA database.
-  */
-
-  alert(
-    "Donation selected:\n\n" +
-    selectedCase +
-    "\n" +
-    "Amount: MVR " +
-    selectedAmount.toLocaleString() +
-    "\n\n" +
-    "The secure payment gateway will be connected in the next stage."
-  );
-
-  closeDonationModal();
-
-});
-
-
-/* ================= NUMBER COUNTERS ================= */
-
-const counters =
-  document.querySelectorAll("[data-count]");
-
-
-let countersStarted = false;
-
-
-function animateCounters() {
-
-  if (countersStarted) return;
-
-  const statsSection =
-    document.querySelector(".stats");
-
-  const sectionTop =
-    statsSection.getBoundingClientRect().top;
-
-  if (sectionTop < window.innerHeight * 0.85) {
-
-    countersStarted = true;
-
-    counters.forEach((counter) => {
-
-      const target =
-        Number(counter.dataset.count);
-
-      let current = 0;
-
-      const duration = 1400;
-
-      const startTime = performance.now();
-
-
-      function updateCounter(timestamp) {
-
-        const progress =
-          Math.min(
-            (timestamp - startTime) / duration,
-            1
-          );
-
-        const eased =
-          1 - Math.pow(1 - progress, 3);
-
-        current =
-          Math.floor(target * eased);
-
-
-        if (target >= 1000) {
-
-          counter.textContent =
-            current.toLocaleString();
-
-        } else {
-
-          counter.textContent =
-            current.toLocaleString();
-
-        }
-
-
-        if (progress < 1) {
-
-          requestAnimationFrame(updateCounter);
-
-        } else {
-
-          counter.textContent =
-            target.toLocaleString();
-
-        }
-
-      }
-
-
-      requestAnimationFrame(updateCounter);
-
-    });
+    projects =
+      projects.filter(
+        (item) => item.id !== id
+      );
 
   }
+
+  save();
+  render();
+
+};
+
+const cancelContent =
+  $("#cancelContent");
+
+if (cancelContent) {
+
+  cancelContent.onclick = () => {
+
+    const form =
+      $("#contentForm");
+
+    if (form) {
+      form.classList.add("hidden");
+    }
+
+  };
 
 }
 
+const contentForm =
+  $("#contentForm");
 
-window.addEventListener(
-  "scroll",
-  animateCounters
-);
+if (contentForm) {
 
-window.addEventListener(
-  "load",
-  animateCounters
-);
+  contentForm.onsubmit = (event) => {
 
+    event.preventDefault();
 
-/* ================= ESC KEY ================= */
+    const form =
+      event.target;
 
-document.addEventListener("keydown", (event) => {
+    const type =
+      form.type.value;
 
-  if (event.key === "Escape") {
+    const list =
+      type === "case"
+        ? cases
+        : projects;
 
-    closeHelpModal();
-    closeDonationModal();
+    const obj = {
+
+      id:
+        form.id.value ||
+        (
+          type === "case"
+            ? "C"
+            : "P"
+        ) +
+        Date.now()
+          .toString()
+          .slice(-5),
+
+      type,
+
+      title:
+        form.title.value.trim(),
+
+      location:
+        form.location.value.trim(),
+
+      category:
+        form.category.value.trim(),
+
+      target:
+        Number(form.target.value || 0),
+
+      raised:
+        Number(form.raised.value || 0),
+
+      image:
+        form.image.value.trim(),
+
+      story:
+        form.story.value.trim(),
+
+      published:
+        form.published.checked
+
+    };
+
+    const existingIndex =
+      list.findIndex(
+        (item) =>
+          item.id === obj.id
+      );
+
+    if (existingIndex >= 0) {
+
+      list[existingIndex] =
+        obj;
+
+    } else {
+
+      list.push(obj);
+
+    }
+
+    save();
+
+    form.classList.add("hidden");
+
+    render();
+
+    openModal("#adminModal");
+
+  };
+
+}
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (event.key === "Escape") {
+
+      $$(".modal.open")
+        .forEach((modal) => {
+
+          modal.classList.remove(
+            "open"
+          );
+
+          modal.setAttribute(
+            "aria-hidden",
+            "true"
+          );
+
+        });
+
+    }
 
   }
+);
 
-});
+/* =========================
+   START HITHA
+========================= */
+
+render();
