@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HITHA — From one heart, to another. Helping people in need across the Maldives.">
+  <meta name="theme-color" content="#073b2a">
+  <title>HITHA — From one heart, to another</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container nav-container">
+
+      <a href="#home" class="logo">
+        <span class="logo-mark">♥</span>
+        <span>HITHA</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#cases">Cases</a>
+        <a href="#transactions">Transactions</a>
+        <a href="#completed">Completed</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+        ☰
+      </button>
+
+      <a href="#cases" class="nav-donate">Donate</a>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home">Home</a>
+      <a href="#cases">Cases</a>
+      <a href="#transactions">Transactions</a>
+      <a href="#completed">Completed</a>
+      <a href="#about">About</a>
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="hero-background hero-bg-1 active"></div>
+      <div class="hero-background hero-bg-2"></div>
+      <div class="hero-background hero-bg-3"></div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+
+        <div class="hero-badge">
+          <span>●</span> A community helping a community
+        </div>
+
+        <div class="quote-container">
+
+          <p class="arabic" id="heroArabic">
+            وَمَا تُقَدِّمُوا لِأَنفُسِكُم مِّنْ خَيْرٍ تَجِدُوهُ عِندَ اللَّهِ
+          </p>
+
+          <h1 id="heroQuote">
+            Whatever good you put forward for yourselves—you will find it with Allah.
+          </h1>
+
+          <p class="quote-reference" id="heroReference">
+            Qur'an 2:110
+          </p>
+
+          <p class="quote-meaning" id="heroMeaning">
+            Every sincere act of goodness matters.
+          </p>
+
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="needHelpBtn">
+            🤲 I Need Help
+          </button>
+
+          <a href="#cases" class="btn btn-light">
+            💚 I Want to Help
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-dots" id="heroDots">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+      </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+    <section class="intro section">
+      <div class="container intro-grid">
+
+        <div>
+          <span class="eyebrow">HITHA</span>
+          <h2>From one heart,<br>to another.</h2>
+        </div>
+
+        <div class="intro-text">
+          <p>
+            HITHA connects people who need help with people who are willing
+            to give. Every request is reviewed before it becomes a public case.
+          </p>
+
+          <p>
+            Together, we can turn compassion into real assistance for families
+            and individuals across the Maldives.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= FEATURED CASES ================= -->
+    <section class="cases section" id="cases">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">HELP SOMEONE TODAY</span>
+            <h2>People who need us</h2>
+          </div>
+
+          <a href="#" class="text-link">View all cases →</a>
+        </div>
+
+
+        <div class="case-grid">
+
+          <!-- CASE 001 -->
+          <article class="case-card">
+
+            <div class="case-image case-image-1">
+              <span class="case-status">Active</span>
+            </div>
+
+            <div class="case-body">
+
+              <span class="case-number">CASE #001</span>
+
+              <h3>Essential household support</h3>
+
+              <p>
+                A family is seeking assistance with essential household
+                necessities.
+              </p>
+
+              <div class="case-location">📍 Maldives</div>
+
+              <div class="progress-info">
+                <span><strong>MVR 5,250</strong> raised</span>
+                <span>MVR 8,000 goal</span>
+              </div>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 66%;"></div>
+              </div>
+
+              <div class="case-footer">
+                <span>66% funded</span>
+                <button class="small-donate" data-case="Case #001">
+                  Donate
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- CASE 002 -->
+          <article class="case-card">
+
+            <div class="case-image case-image-2">
+              <span class="case-status">Active</span>
+            </div>
+
+            <div class="case-body">
+
+              <span class="case-number">CASE #002</span>
+
+              <h3>Food assistance for a family</h3>
+
+              <p>
+                Help provide groceries and essential food supplies for a
+                family facing financial difficulty.
+              </p>
+
+              <div class="case-location">📍 Maldives</div>
+
+              <div class="progress-info">
+                <span><strong>MVR 2,800</strong> raised</span>
+                <span>MVR 5,000 goal</span>
+              </div>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 56%;"></div>
+              </div>
+
+              <div class="case-footer">
+                <span>56% funded</span>
+                <button class="small-donate" data-case="Case #002">
+                  Donate
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- CASE 003 -->
+          <article class="case-card">
+
+            <div class="case-image case-image-3">
+              <span class="case-status">Active</span>
+            </div>
+
+            <div class="case-body">
+
+              <span class="case-number">CASE #003</span>
+
+              <h3>Education essentials</h3>
+
+              <p>
+                Support school supplies and educational necessities for
+                children from a family in need.
+              </p>
+
+              <div class="case-location">📍 Maldives</div>
+
+              <div class="progress-info">
+                <span><strong>MVR 1,900</strong> raised</span>
+                <span>MVR 4,000 goal</span>
+              </div>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 48%;"></div>
+              </div>
+
+              <div class="case-footer">
+                <span>48% funded</span>
+                <button class="small-donate" data-case="Case #003">
+                  Donate
+                </button>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section class="how section">
+
+      <div class="container">
+
+        <div class="center-heading">
+          <span class="eyebrow">HOW HITHA WORKS</span>
+          <h2>From a request to real help.</h2>
+        </div>
+
+        <div class="steps">
+
+          <div class="step">
+            <span class="step-number">01</span>
+            <div class="step-icon">🤲</div>
+            <h3>Someone asks for help</h3>
+            <p>
+              A person or family privately submits their situation to HITHA.
+            </p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">02</span>
+            <div class="step-icon">🔎</div>
+            <h3>HITHA reviews it</h3>
+            <p>
+              The request is reviewed and verified before becoming public.
+            </p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">03</span>
+            <div class="step-icon">💚</div>
+            <h3>People give</h3>
+            <p>
+              Donors choose a case and contribute what they can.
+            </p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">04</span>
+            <div class="step-icon">🌱</div>
+            <h3>Help is delivered</h3>
+            <p>
+              Assistance is provided and the case is updated transparently.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= STATISTICS ================= -->
+    <section class="stats">
+
+      <div class="container stats-grid">
+
+        <div class="stat">
+          <strong data-count="127">0</strong>
+          <span>People helped</span>
+        </div>
+
+        <div class="stat">
+          <strong data-count="43">0</strong>
+          <span>Cases completed</span>
+        </div>
+
+        <div class="stat">
+          <strong data-count="185000">0</strong>
+          <span>MVR assistance</span>
+        </div>
+
+        <div class="stat">
+          <strong data-count="312">0</strong>
+          <span>Donations</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= TRANSACTIONS ================= -->
+    <section class="transactions section" id="transactions">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">TRANSPARENCY</span>
+            <h2>Recent transactions</h2>
+          </div>
+
+          <a href="#" class="text-link">View transactions →</a>
+        </div>
+
+
+        <div class="transaction-box">
+
+          <div class="transaction-header">
+            <span>Date</span>
+            <span>Type</span>
+            <span>Case</span>
+            <span>Amount</span>
+            <span>Status</span>
+          </div>
+
+          <div class="transaction-row">
+            <span>25 Sep 2026</span>
+            <span class="transaction-type donation">Donation</span>
+            <span>Case #001</span>
+            <strong>+ MVR 500</strong>
+            <span class="status completed">Completed</span>
+          </div>
+
+          <div class="transaction-row">
+            <span>25 Sep 2026</span>
+            <span class="transaction-type donation">Donation</span>
+            <span>Case #002</span>
+            <strong>+ MVR 1,000</strong>
+            <span class="status completed">Completed</span>
+          </div>
+
+          <div class="transaction-row">
+            <span>24 Sep 2026</span>
+            <span class="transaction-type assistance">Assistance</span>
+            <span>Case #003</span>
+            <strong>- MVR 1,500</strong>
+            <span class="status delivered">Delivered</span>
+          </div>
+
+          <div class="transaction-row">
+            <span>24 Sep 2026</span>
+            <span class="transaction-type donation">Donation</span>
+            <span>Case #001</span>
+            <strong>+ MVR 750</strong>
+            <span class="status completed">Completed</span>
+          </div>
+
+        </div>
+
+        <div class="transparency-note">
+          🔐 Donor privacy is respected. Financial activity is recorded
+          transparently without unnecessarily exposing personal information.
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= COMPLETED ================= -->
+    <section class="completed-cases section" id="completed">
+
+      <div class="container">
+
+        <div class="center-heading">
+          <span class="eyebrow">TOGETHER, WE HELP</span>
+          <h2>Completed stories</h2>
+          <p>
+            Every completed case represents people coming together to help.
+          </p>
+        </div>
+
+        <div class="completed-grid">
+
+          <article class="completed-card">
+            <div class="completed-image completed-1">
+              <span>✓ Completed</span>
+            </div>
+            <div>
+              <span class="case-number">CASE #000</span>
+              <h3>Emergency food assistance</h3>
+              <p>Assistance successfully delivered.</p>
+            </div>
+          </article>
+
+          <article class="completed-card">
+            <div class="completed-image completed-2">
+              <span>✓ Completed</span>
+            </div>
+            <div>
+              <span class="case-number">CASE #00A</span>
+              <h3>School essentials</h3>
+              <p>Educational supplies provided.</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= DAILY REMINDER ================= -->
+    <section class="reminder section">
+
+      <div class="container">
+
+        <div class="reminder-card">
+
+          <span class="eyebrow">DAILY REMINDER</span>
+
+          <div class="reminder-icon">☘</div>
+
+          <blockquote id="dailyQuote">
+            “Charity does not decrease wealth.”
+          </blockquote>
+
+          <p id="dailyReference">
+            — Sahih Muslim
+          </p>
+
+          <p class="reminder-note">
+            A reminder to give with sincerity, compassion and trust in Allah.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+    <section class="about section" id="about">
+
+      <div class="container about-grid">
+
+        <div>
+          <span class="eyebrow">WHY HITHA?</span>
+          <h2>Because everyone deserves a little help sometimes.</h2>
+        </div>
+
+        <div>
+          <p>
+            HITHA is built around a simple idea: people who are able to help
+            can make a real difference to people who are struggling.
+          </p>
+
+          <p>
+            Requests are reviewed before publication, donations are recorded,
+            and assistance is documented so that the community can see how
+            support moves from giver to recipient.
+          </p>
+
+          <button class="btn btn-primary" id="aboutHelpBtn">
+            🤲 Request Help
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+
+    <div class="container footer-grid">
+
+      <div>
+        <a href="#home" class="logo footer-logo">
+          <span class="logo-mark">♥</span>
+          <span>HITHA</span>
+        </a>
+
+        <p>From one heart, to another.</p>
+      </div>
+
+      <div>
+        <h4>HITHA</h4>
+        <a href="#about">About</a>
+        <a href="#cases">Cases</a>
+        <a href="#transactions">Transparency</a>
+      </div>
+
+      <div>
+        <h4>Help</h4>
+        <a href="#cases">Donate</a>
+        <button class="footer-link" id="footerHelpBtn">
+          Request Help
+        </button>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 HITHA. All rights reserved.</span>
+      <span>Made with ❤️ for the Maldives.</span>
+    </div>
+
+  </footer>
+
+
+  <!-- ================= REQUEST HELP MODAL ================= -->
+  <div class="modal" id="helpModal">
+
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close" id="modalClose">×</button>
+
+      <span class="eyebrow">PRIVATE REQUEST</span>
+
+      <h2>Request Help</h2>
+
+      <p>
+        Your request will remain private while HITHA reviews your situation.
+      </p>
+
+      <form id="helpForm">
+
+        <label>
+          Full name
+          <input type="text" name="name" required placeholder="Your full name">
+        </label>
+
+        <label>
+          Island
+          <input type="text" name="island" required placeholder="Your island">
+        </label>
+
+        <label>
+          Phone number
+          <input type="tel" name="phone" required placeholder="Your phone number">
+        </label>
+
+        <label>
+          What do you need help with?
+          <select name="category" required>
+            <option value="">Select a category</option>
+            <option>Food</option>
+            <option>Housing / Shelter</option>
+            <option>Clothing</option>
+            <option>Education</option>
+            <option>Medical assistance</option>
+            <option>Household essentials</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label>
+          Tell us about your situation
+          <textarea
+            name="story"
+            rows="5"
+            required
+            placeholder="Please explain your situation..."
+          ></textarea>
+        </label>
+
+        <p class="privacy-text">
+          🔒 Your information is private and is not automatically published.
+        </p>
+
+        <button type="submit" class="btn btn-primary full-width">
+          Submit Private Request
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= DONATION MODAL ================= -->
+  <div class="modal" id="donateModal">
+
+    <div class="modal-backdrop" id="donateBackdrop"></div>
+
+    <div class="modal-content donation-modal">
+
+      <button class="modal-close" id="donateClose">×</button>
+
+      <span class="eyebrow">SUPPORT A CASE</span>
+
+      <h2 id="donateCaseTitle">Donate</h2>
+
+      <p>
+        Choose an amount to support this case.
+      </p>
+
+      <div class="amount-buttons">
+
+        <button data-amount="100">MVR 100</button>
+        <button data-amount="250">MVR 250</button>
+        <button data-amount="500">MVR 500</button>
+        <button data-amount="1000">MVR 1,000</button>
+
+      </div>
+
+      <label>
+        Other amount
+        <input
+          type="number"
+          id="customAmount"
+          min="1"
+          placeholder="Enter amount in MVR"
+        >
+      </label>
+
+      <button class="btn btn-primary full-width" id="continueDonation">
+        Continue
+      </button>
+
+      <p class="demo-note">
+        Donation payments will be connected to the official HITHA payment
+        account in a later stage.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
