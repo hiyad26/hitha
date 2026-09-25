@@ -2,392 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0d3b2e">
-  <meta name="description" content="HITHA — From one heart, to another. A humanitarian platform connecting people who need help with people who want to help.">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="description"
+    content="HITHA — From one heart, to another. A humanitarian platform connecting people who need help with people who want to help."
+  >
+
   <title>HITHA — From one heart, to another.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header class="site-header">
 
-  <div class="container nav-wrap">
+  <a href="#home" class="logo">
+    HITHA
+  </a>
 
-    <a href="#home" class="brand">
-      <span class="brand-mark">♥</span>
+  <nav>
 
-      <span>
-        <strong>HITHA</strong>
-        <small>From one heart, to another.</small>
-      </span>
-    </a>
+    <a href="#home">Home</a>
+    <a href="#cases">Stories</a>
+    <a href="#projects">Community</a>
+    <a href="#blood">Blood</a>
+    <a href="#transparency">Ledger</a>
+    <a href="#about">About</a>
+    <a href="#donate" data-open-donate>Give</a>
 
-    <button class="menu-btn" id="menuBtn">☰</button>
+  </nav>
 
-    <nav id="mainNav">
-      <a href="#home">Home</a>
-      <a href="#help">Help</a>
-      <a href="#cases">Cases</a>
-      <a href="#projects">Projects</a>
-      <a href="#blood">Blood</a>
-      <a href="#transparency">Transparency</a>
-      <a href="#about">About</a>
-
-      <button class="btn btn-light nav-donate" data-open-donate>
-        Donate
-      </button>
-    </nav>
-
-  </div>
+  <button
+    id="menuBtn"
+    aria-label="Open menu"
+    type="button"
+  >
+    ☰
+  </button>
 
 </header>
 
 
 <main id="home">
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-  <div class="hero-bg" id="heroBg"></div>
+  <div
+    id="heroBg"
+    class="hero-bg"
+  ></div>
 
   <div class="hero-overlay"></div>
 
-  <div class="container hero-content">
+  <div class="hero-content">
 
-    <span class="eyebrow">
-      A community of care in the Maldives
-    </span>
+    <div class="hero-label">
+      HITHA · MALDIVES
+    </div>
 
     <h1>
-      From one heart,<br>
-      to another.
+      Help can begin
+      <em>with one heart.</em>
     </h1>
 
-    <p id="heroQuote">
-      “And whatever good you put forward for yourselves — you will find it with Allah.”
+    <p class="hero-intro">
+      A private bridge between people who need help
+      and people who are ready to give.
     </p>
-
-    <small id="heroReference">
-      Qur’an 2:110 — meaning
-    </small>
 
     <div class="hero-actions">
 
-      <a class="btn btn-primary" href="#help">
-        I NEED HELP
-      </a>
+      <button
+        id="requestHelpBtn"
+        class="luxury-btn luxury-btn-light"
+      >
+        <span>I NEED HELP</span>
+        <small>Tell us what you need</small>
+      </button>
 
-      <a class="btn btn-outline" href="#helpers">
-        I WANT TO HELP
-      </a>
+      <button
+        class="luxury-btn luxury-btn-outline"
+        data-open-donate
+      >
+        <span>I WANT TO HELP</span>
+        <small>Give with purpose</small>
+      </button>
 
     </div>
 
-  </div>
+    <div class="hero-quote">
 
-  <div class="hero-dots" id="heroDots"></div>
+      <div class="quote-symbol">“</div>
 
-</section>
-
-
-<!-- QUICK ACTIONS -->
-
-<section class="quick-actions">
-
-  <div class="container action-grid">
-
-    <a href="#help" class="action-card">
-      <span>🆘</span>
-
-      <b>I NEED HELP</b>
-
-      <small>
-        Request assistance privately
-      </small>
-    </a>
-
-
-    <a href="#helpers" class="action-card">
-      <span>🤲</span>
-
-      <b>I WANT TO HELP</b>
-
-      <small>
-        Donate, volunteer or support
-      </small>
-    </a>
-
-
-    <a href="#blood" class="action-card">
-      <span>🩸</span>
-
-      <b>BLOOD DONOR</b>
-
-      <small>
-        Register to help when needed
-      </small>
-    </a>
-
-
-    <a href="#projects" class="action-card">
-      <span>🕌</span>
-
-      <b>COMMUNITY PROJECTS</b>
-
-      <small>
-        Support meaningful projects
-      </small>
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- HELP -->
-
-<section class="section" id="help">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <span class="eyebrow dark">
-        Need assistance?
-      </span>
-
-      <h2>
-        Tell HITHA what you need.
-      </h2>
-
-      <p>
-        Your request can be submitted privately for review.
-        Only verified and approved cases are published.
+      <p id="heroQuote">
+        And whatever good you put forward for yourselves —
+        you will find it with Allah.
       </p>
 
-    </div>
-
-
-    <div class="category-grid">
-
-      <button class="category-card"
-              data-help-category="Medical Assistance">
-
-        <span>🏥</span>
-
-        <b>Medical Assistance</b>
-
-        <small>
-          Treatment, medicine and urgent medical needs
-        </small>
-
-      </button>
-
-
-      <button class="category-card"
-              data-help-category="Disability Support">
-
-        <span>♿</span>
-
-        <b>Disability Support</b>
-
-        <small>
-          Mobility aids, equipment and essential support
-        </small>
-
-      </button>
-
-
-      <button class="category-card"
-              data-help-category="Emergency Assistance">
-
-        <span>🆘</span>
-
-        <b>Emergency Assistance</b>
-
-        <small>
-          Urgent household and financial needs
-        </small>
-
-      </button>
-
-
-      <button class="category-card"
-              data-help-category="Food & Essentials">
-
-        <span>🍚</span>
-
-        <b>Food & Essentials</b>
-
-        <small>
-          Food, clothing and everyday necessities
-        </small>
-
-      </button>
-
-
-      <button class="category-card"
-              data-help-category="Education">
-
-        <span>📚</span>
-
-        <b>Education</b>
-
-        <small>
-          School, study and educational needs
-        </small>
-
-      </button>
-
-
-      <button class="category-card"
-              data-help-category="Other Support">
-
-        <span>💚</span>
-
-        <b>Other Support</b>
-
-        <small>
-          Tell us about another genuine need
-        </small>
-
-      </button>
+      <small>
+        Qur’an 2:110 — meaning
+      </small>
 
     </div>
 
-
-    <div class="center">
-
-      <button class="btn btn-primary" id="requestHelpBtn">
-        Submit a Help Request
-      </button>
-
-    </div>
+    <div
+      id="heroDots"
+      class="hero-dots"
+    ></div>
 
   </div>
 
 </section>
 
 
-<!-- VERIFIED CASES -->
+<!-- =========================
+     INTRO
+========================= -->
 
-<section class="section soft" id="cases">
+<section class="intro-section">
 
-  <div class="container">
-
-    <div class="section-heading row-heading">
-
-      <div>
-
-        <span class="eyebrow dark">
-          Verified cases
-        </span>
-
-        <h2>
-          People who need a helping hand.
-        </h2>
-
-      </div>
-
-      <a href="#cases" class="text-link">
-        View all cases →
-      </a>
-
-    </div>
-
-
-    <div class="card-grid" id="caseGrid"></div>
-
-  </div>
-
-</section>
-
-
-<!-- COMMUNITY PROJECTS -->
-
-<section class="section" id="projects">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <span class="eyebrow dark">
-        Community
-      </span>
-
-      <h2>
-        Projects that bring people together.
-      </h2>
-
-      <p>
-        Support verified community projects such as mosque
-        construction, renovation and essential community work.
-      </p>
-
-    </div>
-
-
-    <div class="card-grid" id="projectGrid"></div>
-
-  </div>
-
-</section>
-
-
-<!-- BLOOD DONORS -->
-
-<section class="section blood-section" id="blood">
-
-  <div class="container blood-wrap">
+  <div class="container intro-grid">
 
     <div>
 
       <span class="eyebrow">
-        Blood donor network
+        THE IDEA
       </span>
 
       <h2>
-        Be there when someone needs blood.
+        Sometimes the
+        smallest kindness
+        carries the greatest
+        weight.
       </h2>
-
-      <p>
-        Register your blood group and island privately.
-        HITHA can contact suitable registered donors for
-        verified requests.
-      </p>
-
-      <button class="btn btn-light" id="donorBtn">
-        Become a Blood Donor
-      </button>
 
     </div>
 
-
-    <div class="blood-card">
-
-      <span class="blood-icon">
-        🩸
-      </span>
-
-      <b>
-        Urgent blood requests
-      </b>
+    <div class="intro-copy">
 
       <p>
-        Donor contact details are not displayed publicly.
+        HITHA exists to make meaningful help easier to find,
+        easier to give, and easier to trust.
       </p>
 
-      <a href="#helpers">
-        Learn about helping →
+      <p>
+        We connect verified needs with people,
+        families and communities willing to stand beside them.
+      </p>
+
+      <a href="#about" class="text-link">
+        Discover HITHA
+        <span>↗</span>
       </a>
 
     </div>
@@ -397,90 +184,365 @@
 </section>
 
 
-<!-- WAYS TO HELP -->
+<!-- =========================
+     QUICK ACTIONS
+========================= -->
 
-<section class="section" id="helpers">
+<section class="quick-actions">
 
   <div class="container">
 
-    <div class="section-heading">
+    <div class="quick-grid">
 
-      <span class="eyebrow dark">
-        I want to help
-      </span>
+      <a
+        href="#cases"
+        class="quick-card"
+      >
 
-      <h2>
-        There are many ways to give.
-      </h2>
+        <span class="quick-number">
+          01
+        </span>
+
+        <div>
+          <strong>
+            Help someone
+          </strong>
+
+          <small>
+            Browse verified stories
+          </small>
+        </div>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <a
+        href="#projects"
+        class="quick-card"
+      >
+
+        <span class="quick-number">
+          02
+        </span>
+
+        <div>
+          <strong>
+            Build community
+          </strong>
+
+          <small>
+            Support meaningful projects
+          </small>
+        </div>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <a
+        href="#blood"
+        class="quick-card"
+      >
+
+        <span class="quick-number">
+          03
+        </span>
+
+        <div>
+          <strong>
+            Give blood
+          </strong>
+
+          <small>
+            Become a donor
+          </small>
+        </div>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <a
+        href="#transparency"
+        class="quick-card"
+      >
+
+        <span class="quick-number">
+          04
+        </span>
+
+        <div>
+          <strong>
+            Follow the journey
+          </strong>
+
+          <small>
+            See the HITHA ledger
+          </small>
+        </div>
+
+        <span class="arrow">
+          ↗
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     STORIES
+========================= -->
+
+<section
+  id="cases"
+  class="stories-section"
+>
+
+  <div class="container">
+
+    <div class="section-heading-row">
+
+      <div>
+
+        <span class="eyebrow">
+          VERIFIED STORIES
+        </span>
+
+        <h2>
+          Someone's
+          <em>tomorrow</em>
+          may begin with you.
+        </h2>
+
+      </div>
 
       <p>
-        Choose how you would like to support HITHA's
-        verified cases and community work.
+        Every story shown here is intended
+        to represent a verified request.
       </p>
 
     </div>
 
 
-    <div class="support-grid">
+    <div
+      id="caseGrid"
+      class="case-grid"
+    ></div>
 
-      <button class="support-card" data-open-donate>
+  </div>
 
-        <span>💰</span>
-
-        <b>
-          Financial Donations
-        </b>
-
-        <small>
-          Support verified cases and approved projects.
-        </small>
-
-      </button>
+</section>
 
 
-      <button class="support-card" id="donorBtn2">
+<!-- =========================
+     COMMUNITY
+========================= -->
 
-        <span>🩸</span>
+<section
+  id="projects"
+  class="community-section"
+>
 
-        <b>
-          Blood Donation
-        </b>
+  <div class="community-heading">
 
-        <small>
-          Register as a donor for verified requests.
-        </small>
+    <span class="eyebrow">
+      COMMUNITY
+    </span>
 
-      </button>
+    <h2>
+      Some things are
+      bigger than one person.
+    </h2>
 
+    <p>
+      From places of worship to water,
+      education and essential infrastructure,
+      communities grow when people build together.
+    </p>
 
-      <button class="support-card">
-
-        <span>📦</span>
-
-        <b>
-          Items & Essentials
-        </b>
-
-        <small>
-          Offer useful goods or equipment.
-        </small>
-
-      </button>
+  </div>
 
 
-      <button class="support-card">
+  <div
+    id="projectGrid"
+    class="project-grid"
+  ></div>
 
-        <span>🤝</span>
+</section>
 
-        <b>
+
+<!-- =========================
+     BLOOD
+========================= -->
+
+<section
+  id="blood"
+  class="blood-section"
+>
+
+  <div class="blood-bg"></div>
+
+  <div class="container blood-content">
+
+    <span class="eyebrow">
+      BLOOD & HEALTH
+    </span>
+
+    <div class="blood-symbol">
+      +
+    </div>
+
+    <h2>
+      Your blood
+      could become
+      someone's
+      <em>tomorrow.</em>
+    </h2>
+
+    <p>
+      Register privately as a blood donor.
+      When a verified request needs your blood group,
+      HITHA can contact you.
+    </p>
+
+    <button
+      id="donorBtn"
+      class="luxury-btn luxury-btn-light"
+    >
+      <span>REGISTER AS A DONOR</span>
+      <small>It takes only a moment</small>
+    </button>
+
+    <button
+      id="donorBtn2"
+      class="blood-secondary"
+    >
+      I NEED A BLOOD DONOR
+      <span>→</span>
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WAYS TO HELP
+========================= -->
+
+<section class="ways-section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="eyebrow">
+        THERE ARE MANY WAYS
+      </span>
+
+      <h2>
+        Give more than
+        <em>money.</em>
+      </h2>
+
+    </div>
+
+
+    <div class="ways-grid">
+
+      <article class="way">
+
+        <span>01</span>
+
+        <div class="way-icon">
+          ♡
+        </div>
+
+        <h3>
+          Financial support
+        </h3>
+
+        <p>
+          Help fund a verified need
+          or community project.
+        </p>
+
+      </article>
+
+
+      <article class="way">
+
+        <span>02</span>
+
+        <div class="way-icon">
+          +
+        </div>
+
+        <h3>
+          Blood donation
+        </h3>
+
+        <p>
+          Become part of a private
+          donor network.
+        </p>
+
+      </article>
+
+
+      <article class="way">
+
+        <span>03</span>
+
+        <div class="way-icon">
+          □
+        </div>
+
+        <h3>
+          Items & essentials
+        </h3>
+
+        <p>
+          Give useful items to
+          families who need them.
+        </p>
+
+      </article>
+
+
+      <article class="way">
+
+        <span>04</span>
+
+        <div class="way-icon">
+          ↗
+        </div>
+
+        <h3>
           Volunteer
-        </b>
+        </h3>
 
-        <small>
-          Offer your time and skills to help.
-        </small>
+        <p>
+          Give your time,
+          skills or experience.
+        </p>
 
-      </button>
+      </article>
 
     </div>
 
@@ -489,104 +551,92 @@
 </section>
 
 
-<!-- TRANSPARENCY -->
+<!-- =========================
+     LEDGER
+========================= -->
 
-<section class="section soft" id="transparency">
+<section
+  id="transparency"
+  class="ledger-section"
+>
 
   <div class="container">
 
-    <div class="section-heading">
+    <div class="ledger-intro">
 
-      <span class="eyebrow dark">
-        Transparency
+      <span class="eyebrow">
+        HITHA LEDGER
       </span>
 
       <h2>
-        Every contribution should be accountable.
+        Trust should be
+        <em>visible.</em>
       </h2>
 
       <p>
-        Demo records are shown below for the prototype.
-        Real transaction records will require a secure backend
-        and verified payment/accounting system.
+        We believe people should be able to understand
+        how assistance moves through HITHA.
       </p>
 
     </div>
 
 
-    <div class="stats" id="stats"></div>
+    <div
+      id="stats"
+      class="stats"
+    ></div>
 
 
-    <div class="table-wrap">
+    <div class="ledger-card">
 
-      <table>
+      <div class="ledger-top">
 
-        <thead>
+        <div>
 
-          <tr>
-            <th>Date</th>
-            <th>Reference</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Status</th>
-          </tr>
+          <span>
+            TRANSACTION RECORD
+          </span>
 
-        </thead>
+          <h3>
+            Recent activity
+          </h3>
 
-        <tbody id="transactionBody"></tbody>
+        </div>
 
-      </table>
+        <div class="ledger-mark">
+          H
+        </div>
 
-    </div>
-
-  </div>
-
-</section>
+      </div>
 
 
-<!-- COMPLETED -->
+      <div class="table-wrap">
 
-<section class="section" id="completed">
+        <table>
 
-  <div class="container">
+          <thead>
 
-    <div class="section-heading">
+            <tr>
+              <th>Date</th>
+              <th>Reference</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
 
-      <span class="eyebrow dark">
-        Completed
-      </span>
+          </thead>
 
-      <h2>
-        Help that reached its destination.
-      </h2>
+          <tbody id="transactionBody"></tbody>
 
-    </div>
+        </table>
 
+      </div>
 
-    <div class="completed-grid" id="completedGrid"></div>
-
-  </div>
-
-</section>
-
-
-<!-- REMINDER -->
-
-<section class="section reminder">
-
-  <div class="container reminder-box">
-
-    <span>☾</span>
-
-    <div>
-
-      <b>
-        Daily reminder
-      </b>
-
-      <p>
-        “Whatever good you do, Allah knows it.”
-        — Qur’an 2:197, meaning
+      <p class="ledger-note">
+        Prototype records are displayed for demonstration.
+        Real financial records will be connected after
+        the appropriate organizational and payment structure
+        is established.
       </p>
 
     </div>
@@ -596,150 +646,309 @@
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     COMPLETED
+========================= -->
 
-<section class="section about" id="about">
+<section class="completed-section">
+
+  <div class="container">
+
+    <div class="section-heading-row">
+
+      <div>
+
+        <span class="eyebrow">
+          COMPLETED
+        </span>
+
+        <h2>
+          Good stories deserve
+          a <em>closing chapter.</em>
+        </h2>
+
+      </div>
+
+      <p>
+        Follow what happened after
+        people chose to help.
+      </p>
+
+    </div>
+
+
+    <div
+      id="completedGrid"
+      class="completed-grid"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     REMINDER
+========================= -->
+
+<section class="reminder-section">
+
+  <div class="container">
+
+    <div class="reminder-inner">
+
+      <div class="arabic-mark">
+        هِثَة
+      </div>
+
+      <span class="eyebrow">
+        A DAILY REMINDER
+      </span>
+
+      <h2>
+        “Whatever good you do,
+        Allah knows it.”
+      </h2>
+
+      <p>
+        Qur’an 2:197 — meaning
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+  id="about"
+  class="about-section"
+>
 
   <div class="container about-grid">
 
-    <div>
+    <div class="about-visual"></div>
 
-      <span class="eyebrow dark">
-        About HITHA
+    <div class="about-copy">
+
+      <span class="eyebrow">
+        ABOUT HITHA
       </span>
 
       <h2>
-        Humanity starts with a helping heart.
+        A place where
+        kindness finds
+        its way.
       </h2>
 
-    </div>
-
-
-    <div>
-
       <p>
-        HITHA is being designed as a Maldives-focused platform
-        connecting people who need assistance with people who
-        want to help.
+        HITHA is being built around a simple idea:
+        when someone needs help, finding the right
+        person to help should not be impossible.
       </p>
 
       <p>
-        Requests are intended to remain private during review.
-        Approved cases can then be presented clearly, with
-        progress and assistance updates.
+        We aim to create a trusted, private and
+        transparent bridge between verified needs
+        and people willing to make a difference.
       </p>
 
-      <p>
-        <b>Important:</b>
-        This website is currently a prototype.
-        No real donations should be sent through it until
-        the organization, payment account, verification process
-        and legal requirements are properly established.
-      </p>
+
+      <div class="about-values">
+
+        <div>
+          <strong>
+            Dignity
+          </strong>
+
+          <span>
+            People asking for help deserve privacy
+            and respect.
+          </span>
+        </div>
+
+        <div>
+          <strong>
+            Verification
+          </strong>
+
+          <span>
+            Requests should be reviewed before
+            being presented publicly.
+          </span>
+        </div>
+
+        <div>
+          <strong>
+            Transparency
+          </strong>
+
+          <span>
+            Assistance should be traceable
+            and responsibly recorded.
+          </span>
+        </div>
+
+      </div>
 
     </div>
 
   </div>
 
 </section>
+
 
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-  <div class="container footer-wrap">
+  <div class="container footer-inner">
 
-    <div class="brand">
+    <div class="footer-brand">
 
-      <span class="brand-mark">
-        ♥
-      </span>
+      <div class="footer-logo">
+        HITHA
+      </div>
 
-      <span>
-        <strong>HITHA</strong>
-        <small>From one heart, to another.</small>
-      </span>
+      <p>
+        From one heart, to another.
+      </p>
 
     </div>
 
-    <p>
-      © 2026 HITHA. Prototype.
-    </p>
 
-    <a href="#home">
-      Back to top ↑
-    </a>
+    <div class="footer-links">
+
+      <a href="#home">Home</a>
+      <a href="#cases">Stories</a>
+      <a href="#projects">Community</a>
+      <a href="#blood">Blood</a>
+      <a href="#transparency">Ledger</a>
+      <a href="#about">About</a>
+
+    </div>
+
+
+    <div class="footer-note">
+
+      <p>
+        Built with the intention of making
+        meaningful help easier to find.
+      </p>
+
+      <small>
+        © 2026 HITHA
+      </small>
+
+    </div>
 
   </div>
 
 </footer>
 
 
-<!-- HELP MODAL -->
+<!-- =========================
+     HELP MODAL
+========================= -->
 
-<div class="modal" id="helpModal">
+<div
+  id="helpModal"
+  class="modal"
+  aria-hidden="true"
+>
 
-  <div class="modal-card">
+  <div class="modal-box">
 
-    <button class="modal-close" data-close-modal>
+    <button
+      data-close-modal
+      type="button"
+      aria-label="Close"
+    >
       ×
     </button>
 
-    <span class="eyebrow dark">
-      Private submission
+    <span class="eyebrow">
+      PRIVATE REQUEST
     </span>
 
     <h2>
-      Request Help
+      Tell us what you need.
     </h2>
 
-    <p class="modal-note">
-      Your request is for review only.
-      Do not submit sensitive documents through this prototype.
+    <p>
+      Your request is private during the review process.
     </p>
 
 
     <form id="helpForm">
 
-      <label>
-        Full name
-        <input name="name" required>
-      </label>
+      <div class="form-group">
+
+        <label>
+          Full name
+        </label>
+
+        <input
+          name="name"
+          required
+        >
+
+      </div>
 
 
-      <label>
-        Island / location
-        <input name="location" required>
-      </label>
+      <div class="form-group">
+
+        <label>
+          Island / location
+        </label>
+
+        <input
+          name="location"
+          required
+        >
+
+      </div>
 
 
-      <label>
-        Contact number
-        <input name="contact" required>
-      </label>
+      <div class="form-group">
+
+        <label>
+          Phone number
+        </label>
+
+        <input
+          name="phone"
+          type="tel"
+          required
+        >
+
+      </div>
 
 
-      <label>
-        Household size
-        <input name="household"
-               type="number"
-               min="1"
-               required>
-      </label>
+      <div class="form-group">
 
+        <label>
+          What kind of help do you need?
+        </label>
 
-      <label>
-        Category
-
-        <select name="category"
-                id="helpCategory"
-                required>
+        <select
+          id="helpCategory"
+          name="category"
+          required
+        >
 
           <option value="">
-            Select
+            Select a category
           </option>
 
           <option>
@@ -763,94 +972,131 @@
           </option>
 
           <option>
+            Family Support
+          </option>
+
+          <option>
             Other Support
           </option>
 
         </select>
 
-      </label>
+      </div>
 
 
-      <label>
-        Estimated amount needed (MVR)
+      <div class="form-group">
 
-        <input name="amount"
-               type="number"
-               min="0">
-      </label>
+        <label>
+          Tell us your story
+        </label>
 
+        <textarea
+          name="story"
+          required
+        ></textarea>
 
-      <label>
-
-        Your story
-
-        <textarea name="story"
-                  rows="5"
-                  required></textarea>
-
-      </label>
+      </div>
 
 
-      <button class="btn btn-primary full"
-              type="submit">
+      <div class="form-group">
 
-        Submit for Review
+        <label>
+          Estimated amount needed (MVR)
+        </label>
 
+        <input
+          name="amount"
+          type="number"
+          min="0"
+        >
+
+      </div>
+
+
+      <button
+        class="btn btn-primary full"
+        type="submit"
+      >
+        Submit private request
       </button>
 
+      <div
+        id="helpSuccess"
+        class="success"
+      >
+        Your demo request has been received.
+        In the real HITHA system, this information
+        will go to the private review process.
+      </div>
+
     </form>
-
-
-    <div class="success"
-         id="helpSuccess">
-
-      Thank you.
-      Your request has been saved as a demo submission for review.
-
-    </div>
 
   </div>
 
 </div>
 
 
-<!-- BLOOD DONOR MODAL -->
+<!-- =========================
+     DONOR MODAL
+========================= -->
 
-<div class="modal" id="donorModal">
+<div
+  id="donorModal"
+  class="modal"
+  aria-hidden="true"
+>
 
-  <div class="modal-card">
+  <div class="modal-box">
 
-    <button class="modal-close" data-close-modal>
+    <button
+      data-close-modal
+      type="button"
+      aria-label="Close"
+    >
       ×
     </button>
 
-    <span class="eyebrow dark">
-      Blood donor network
+    <span class="eyebrow">
+      BLOOD DONOR
     </span>
 
     <h2>
-      Become a Blood Donor
+      Become someone's match.
     </h2>
 
-    <p class="modal-note">
-      Your information should be kept private and used only
-      for verified donor matching.
+    <p>
+      Your information remains private.
+      HITHA will contact you only when appropriate
+      for a verified request.
     </p>
 
 
     <form id="donorForm">
 
-      <label>
-        Full name
-        <input name="name" required>
-      </label>
+      <div class="form-group">
+
+        <label>
+          Name
+        </label>
+
+        <input
+          name="name"
+          required
+        >
+
+      </div>
 
 
-      <label>
+      <div class="form-group">
 
-        Blood group
+        <label>
+          Blood group
+        </label>
 
-        <select name="blood" required>
+        <select
+          name="blood"
+          required
+        >
 
           <option value="">
             Select
@@ -867,29 +1113,48 @@
 
         </select>
 
-      </label>
+      </div>
 
 
-      <label>
-        Island / location
-        <input name="location" required>
-      </label>
+      <div class="form-group">
+
+        <label>
+          Island / location
+        </label>
+
+        <input
+          name="location"
+          required
+        >
+
+      </div>
 
 
-      <label>
-        Phone number
-        <input name="phone" required>
-      </label>
+      <div class="form-group">
+
+        <label>
+          Phone number
+        </label>
+
+        <input
+          name="phone"
+          type="tel"
+          required
+        >
+
+      </div>
 
 
-      <label>
+      <div class="form-group">
 
-        Availability
+        <label>
+          Availability
+        </label>
 
         <select name="availability">
 
           <option>
-            When contacted
+            Anytime
           </option>
 
           <option>
@@ -901,141 +1166,186 @@
           </option>
 
           <option>
-            Flexible
+            Weekends
           </option>
 
         </select>
 
-      </label>
+      </div>
 
 
-      <button class="btn btn-primary full"
-              type="submit">
-
-        Register as Donor
-
+      <button
+        class="btn btn-primary full"
+        type="submit"
+      >
+        Register privately
       </button>
 
+
+      <div
+        id="donorSuccess"
+        class="success"
+      >
+        Demo donor registration received.
+        Your details are not being stored remotely yet.
+      </div>
+
     </form>
-
-
-    <div class="success"
-         id="donorSuccess">
-
-      Thank you.
-      Your donor registration has been saved as a demo entry.
-
-    </div>
 
   </div>
 
 </div>
 
 
-<!-- DONATION MODAL -->
+<!-- =========================
+     DONATION MODAL
+========================= -->
 
-<div class="modal" id="donateModal">
+<div
+  id="donateModal"
+  class="modal"
+  aria-hidden="true"
+>
 
-  <div class="modal-card">
+  <div class="modal-box donation-box">
 
-    <button class="modal-close" data-close-modal>
+    <button
+      data-close-modal
+      type="button"
+      aria-label="Close"
+    >
       ×
     </button>
 
-    <span class="eyebrow dark">
-      Support HITHA
+    <span class="eyebrow">
+      GIVE WITH PURPOSE
     </span>
 
     <h2>
-      Make a Donation
+      Your kindness,
+      directed.
     </h2>
 
-    <p class="modal-note">
-      This is a prototype donation screen.
-      No real payment is processed.
+    <p>
+      Choose how you would like your contribution
+      to support HITHA.
     </p>
 
 
     <form id="donateForm">
 
-      <label>
-        Your name (optional)
-        <input name="name">
-      </label>
+      <div class="form-group">
+
+        <label>
+          Your name
+        </label>
+
+        <input
+          name="name"
+        >
+
+      </div>
 
 
-      <label>
-        Amount (MVR)
+      <div class="form-group">
 
-        <input name="amount"
-               type="number"
-               min="1"
-               required>
-      </label>
+        <label>
+          Amount (MVR)
+        </label>
+
+        <input
+          name="amount"
+          type="number"
+          min="1"
+          required
+        >
+
+      </div>
 
 
-      <label>
+      <div class="form-group">
 
-        Support
+        <label>
+          Where would you like to help?
+        </label>
 
-        <select name="support">
+        <select name="purpose">
 
           <option>
-            Where most needed
+            Where needed most
           </option>
 
           <option>
-            Medical Assistance
+            Medical assistance
           </option>
 
           <option>
-            Disability Support
+            Disability support
           </option>
 
           <option>
-            Emergency Assistance
+            Emergency assistance
           </option>
 
           <option>
-            Community Projects
+            Food & essentials
+          </option>
+
+          <option>
+            Education
+          </option>
+
+          <option>
+            Community projects
           </option>
 
         </select>
 
-      </label>
+      </div>
 
 
-      <button class="btn btn-primary full"
-              type="submit">
-
+      <button
+        class="btn btn-primary full"
+        type="submit"
+      >
         Continue
-
       </button>
 
+
+      <div
+        id="donateSuccess"
+        class="success"
+      >
+        This is a prototype.
+        Real payment processing will be connected
+        after the HITHA organization and payment
+        structure are established.
+      </div>
+
     </form>
-
-
-    <div class="success"
-         id="donateSuccess">
-
-      Demo donation recorded.
-      A real payment gateway will be added after the
-      HITHA organization/payment structure is ready.
-
-    </div>
 
   </div>
 
 </div>
 
 
-<!-- CASE DETAILS -->
+<!-- =========================
+     CASE DETAILS
+========================= -->
 
-<div class="modal" id="caseModal">
+<div
+  id="caseModal"
+  class="modal"
+  aria-hidden="true"
+>
 
-  <div class="modal-card">
+  <div class="modal-box">
 
-    <button class="modal-close" data-close-modal>
+    <button
+      data-close-modal
+      type="button"
+      aria-label="Close"
+    >
       ×
     </button>
 
@@ -1046,177 +1356,221 @@
 </div>
 
 
-<!-- ADMIN -->
+<!-- =========================
+     ADMIN
+========================= -->
 
-<div class="admin-launch">
+<div
+  id="adminModal"
+  class="modal"
+  aria-hidden="true"
+>
 
-  <button id="adminBtn"
-          title="Prototype admin">
+  <div class="modal-box admin-box">
 
-    ⚙
-
-  </button>
-
-</div>
-
-
-<div class="modal" id="adminModal">
-
-  <div class="modal-card admin-card">
-
-    <button class="modal-close" data-close-modal>
+    <button
+      data-close-modal
+      type="button"
+      aria-label="Close"
+    >
       ×
     </button>
 
-    <span class="eyebrow dark">
-      Prototype admin
+    <span class="eyebrow">
+      PROTOTYPE
     </span>
 
     <h2>
       HITHA Content Manager
     </h2>
 
-    <p class="modal-note">
-
-      This local demo lets you add and edit
-      browser-stored cases.
-
-      <b>
-        It is not secure.
-      </b>
-
-      A real authenticated admin system must be used
-      before production.
-
+    <p>
+      Local demo content manager.
+      Not suitable for real beneficiary information.
     </p>
 
 
     <div class="admin-tabs">
 
-      <button class="active"
-              data-admin-tab="cases">
-
+      <button
+        data-admin-tab="cases"
+        class="active"
+        type="button"
+      >
         Cases
-
       </button>
 
-
-      <button data-admin-tab="projects">
-
+      <button
+        data-admin-tab="projects"
+        type="button"
+      >
         Projects
-
       </button>
 
     </div>
 
 
-    <div id="adminList"></div>
-
-
-    <button class="btn btn-primary full"
-            id="addContentBtn">
-
-      + Add New
-
+    <button
+      id="addContentBtn"
+      class="btn btn-primary full"
+      type="button"
+    >
+      + Add new
     </button>
 
 
-    <form id="contentForm"
-          class="hidden">
-
-      <input type="hidden"
-             name="id">
-
-      <input type="hidden"
-             name="type">
+    <div
+      id="adminList"
+      class="admin-list"
+    ></div>
 
 
-      <label>
-        Title
-        <input name="title" required>
+    <form
+      id="contentForm"
+      class="hidden"
+    >
+
+      <input
+        type="hidden"
+        name="id"
+      >
+
+      <input
+        type="hidden"
+        name="type"
+      >
+
+
+      <div class="form-group">
+
+        <label>
+          Title
+        </label>
+
+        <input
+          name="title"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Location
+        </label>
+
+        <input
+          name="location"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Category
+        </label>
+
+        <input
+          name="category"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Target (MVR)
+        </label>
+
+        <input
+          name="target"
+          type="number"
+          min="0"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Raised (MVR)
+        </label>
+
+        <input
+          name="raised"
+          type="number"
+          min="0"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Image URL
+        </label>
+
+        <input
+          name="image"
+          type="url"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Story
+        </label>
+
+        <textarea
+          name="story"
+          required
+        ></textarea>
+
+      </div>
+
+
+      <label class="admin-check">
+
+        <input
+          type="checkbox"
+          name="published"
+          checked
+        >
+
+        Published publicly
+
       </label>
 
 
-      <label>
-        Location
-        <input name="location" required>
-      </label>
+      <div class="card-actions">
 
-
-      <label>
-        Category
-        <input name="category" required>
-      </label>
-
-
-      <label>
-        Target (MVR)
-
-        <input name="target"
-               type="number"
-               min="0"
-               required>
-
-      </label>
-
-
-      <label>
-        Raised (MVR)
-
-        <input name="raised"
-               type="number"
-               min="0"
-               required>
-
-      </label>
-
-
-      <label>
-        Image URL
-
-        <input name="image"
-               placeholder="https://...">
-
-      </label>
-
-
-      <label>
-
-        Story / description
-
-        <textarea name="story"
-                  rows="5"
-                  required></textarea>
-
-      </label>
-
-
-      <label class="check">
-
-        <input type="checkbox"
-               name="published"
-               checked>
-
-        Published
-
-      </label>
-
-
-      <div class="form-actions">
-
-        <button type="submit"
-                class="btn btn-primary">
-
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
           Save
-
         </button>
 
-        <button type="button"
-                id="cancelContent"
-                class="btn btn-ghost">
-
+        <button
+          id="cancelContent"
+          class="btn btn-ghost"
+          type="button"
+        >
           Cancel
-
         </button>
 
       </div>
@@ -1226,6 +1580,19 @@
   </div>
 
 </div>
+
+
+<!-- =========================
+     ADMIN BUTTON
+========================= -->
+
+<button
+  id="adminBtn"
+  type="button"
+  aria-label="Prototype admin"
+>
+  H
+</button>
 
 
 <script src="script.js"></script>
